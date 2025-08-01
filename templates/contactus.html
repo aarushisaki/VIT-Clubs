@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container my-5">
+    <h2 class="text-center mb-5 fw-bold" style="color:Teal;">Get in Touch with VITB Clubs!</h2>
+
+    {# Display flash messages for success/error #}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }} text-center" role="alert">
+            {{ message }}
+        </div>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card p-4 shadow-sm rounded-3">
+                <div class="card-body">
+                    <p class="lead text-center mb-4">
+                        Interested in joining a club, collaborating, or just want to stay updated?
+                        Fill out the form below, and we'll reach out to you at our convenience!
+                    </p>
+
+                    <h4 class="text-center mb-4" style="color:Teal;">Provide Your Contact Details</h4>
+                    <form action="/submit_contact_details" method="POST">
+                        <div class="mb-3">
+                            <label for="contact_name" class="form-label">Your Name</label>
+                            <input type="text" class="form-control" id="contact_name" name="name" placeholder="John Doe" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="contact_email" class="form-label">Your Email</label>
+                            <input type="email" class="form-control" id="contact_email" name="email" placeholder="name@example.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="contact_phone" class="form-label">Your Phone Number (Optional)</label>
+                            <input type="tel" class="form-control" id="contact_phone" name="phone" placeholder="e.g., +919876543210">
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary btn-lg">Submit My Details</button>
+                        </div>
+                    </form>
+
+                    <hr class="my-4">
+
+                    <h4 class="text-center mb-3" style="color:Teal;">General Inquiries</h4>
+                    <p class="text-center">For immediate assistance or specific questions, you can also reach us directly:</p>
+                    <div class="row mb-4">
+                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                            <h5 style="color:Teal;"><i class="fas fa-envelope me-2" style="color:Teal;"></i> Email Us</h5>
+                            <p class="mb-0"><a href="mailto:info@vitbclubs.com" class="text-decoration-none">info@vitbclubs.com</a></p>
+                        </div>
+                    </div>
+
+                    <hr class="my-4">
+
+                    <h4 class="text-center mb-3" style="color:Teal;">Find Us on Social Media</h4>
+                    <div class="text-center social-contact-icons">
+                        <a href="https://www.instagram.com/vitbhopal/" target="_blank" aria-label="VIT Bhopal Instagram" class="mx-3 text-decoration-none"><i class="fab fa-instagram fa-2x"></i></a>
+                        <a href="https://www.linkedin.com/school/vitbhopal/" target="_blank" aria-label="VIT Bhopal LinkedIn" class="mx-3 text-decoration-none"><i class="fab fa-linkedin fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Custom styles for contact us page */
+    .social-contact-icons a {
+        color: #00796B; /* Matching your card header blue */
+        transition: color 0.2s ease;
+    }
+    .social-contact-icons a:hover {
+        color: #00796B; /* Darker blue on hover */
+    }
+</style>
+{% endblock body %}

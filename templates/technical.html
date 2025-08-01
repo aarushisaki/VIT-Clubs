@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="container my-5">
+    <h2 class="text-center mb-5 fw-bold" style="color:Teal;">Technical Clubs</h2>
+
+    {# Display database error message if any #}
+    {% if db_error %}
+    <div class="alert alert-danger text-center" role="alert">
+        {{ db_error }}
+    </div>
+    {% endif %}
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        {# Loop through the clubs data passed from Flask #}
+        {% for club in clubs %}
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-header">
+                    {{ club.club_type }} Club
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ club.name }}</h5>
+                    <p class="card-text">
+                        {{ club.description | default('No description available.') }}
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <span class="coordinator-info">Coordinator: {{ club.coordinator_name | default('N/A') }}</span>
+                    <div class="social-icons">
+                        {% if club.instagram_url and club.instagram_url != 'abcd' %}
+                        <a href="{{ club.instagram_url }}" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        {% endif %}
+                        {% if club.website_url and club.website_url != 'abcd' %}
+                        <a href="{{ club.website_url }}" target="_blank" aria-label="Website"><i class="fas fa-globe"></i></a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        {# Message if no clubs are found or database connection failed #}
+        <div class="col-12 text-center">
+            <p class="text-muted">No technical clubs found.</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock body %}

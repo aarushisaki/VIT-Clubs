@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4 fw-bold" style="color:Teal;">Welcome to VITB Clubs</h1>
+    <p class="lead text-center mb-5">
+        Explore a vibrant community of clubs at VIT Bhopal, where you can enhance your skills, meet new people, and engage in exciting activities.
+        Whether you're passionate about coding, robotics, arts, literature, or social causes, VIT Bhopal has a club for you.
+        Dive in and find your perfect fit!
+    </p>
+
+    <div class="row justify-content-center mt-5 g-4">
+        <div class="col-md-6 col-lg-4">
+            <div class="club-type-card text-center">
+                <i class="fas fa-laptop-code fa-3x mb-4" style="color:Teal;"></i> {# Technical Icon #}
+                <h3>Technical Clubs</h3>
+                <p>Enhance your skills in programming, data science, AI, robotics, and more. Join workshops, hackathons, and innovative projects.</p>
+                <a href="/technical" class="btn btn-primary mt-auto">View Technical Clubs</a>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="club-type-card text-center">
+                <i class="fas fa-palette fa-3x mb-4" style="color:Teal;"></i> {# Non-Technical Icon #}
+                <h3>Non-Technical Clubs</h3>
+                <p>Engage in diverse activities like debates, drama, music, photography, social work, and entrepreneurship. Foster creativity and leadership.</p>
+                <a href="/nontechnical" class="btn btn-primary mt-auto">View Non-Technical Clubs</a>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="club-type-card text-center">
+                <i class="fas fa-users fa-3x mb-4" style="color:Teal;"></i> {# Community Icon #}
+                <h3>Connect & Grow</h3>
+                <p>Beyond academics, our clubs offer a platform for personal growth, networking, and building lasting friendships. Get involved today!</p>
+                <a href="/contactus" class="btn btn-primary mt-auto">Get in Touch</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}

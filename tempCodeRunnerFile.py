@@ -1,0 +1,1 @@
+fetch_clubs_from_db
